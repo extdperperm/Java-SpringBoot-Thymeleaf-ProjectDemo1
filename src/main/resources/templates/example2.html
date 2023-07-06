@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Spring Boot Project Demo 1 - Ejemplo 2</title>
+<link rel="stylesheet" href="./styles/index.css">
+</head>
+<body>
+    <div class="cabecera">
+        <div class="cab1"></div>
+        <div class="cap2"></div>
+    </div>
+    <div class="cuerpo">
+        <div class="panel2">
+            <!--Ejemplo de notación en java de Expression language (EL) haciendo uso de $. Como se comprueba en este ejemplo, técnicamente no es obligatorio que la controladora
+                deba tramitar los parámetros recibidos.
+            -->
+            <div class="item"><p><span>Resultado Ejemplo 2:</span> Se ha recibido por parámetro por método GET; Ciclo = <em th:text="${param.Ciclo}"/>, Grupo = <em th:text="${param.Grupo}"/> y Turno = <em th:text="${param.Turno}"/>. Ejecutado Correctamente.</p></div>
+            <div class="item"><p style="text-align:center;"><a href="./">Volver</a></p></div>
+        </div>
+    </div>
+    <div class="pie"><p><span>©</span> 2022 - Daniel Pérez Pérez</p></div>
+
+</body>
+</html>

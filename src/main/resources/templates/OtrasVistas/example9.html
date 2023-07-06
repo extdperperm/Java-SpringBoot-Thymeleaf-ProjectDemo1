@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Spring Proyect Demo 1 - Ejemplo 9</title>
+<link rel="stylesheet" href="../styles/index.css">
+</head>
+<body>
+    <div class="cabecera">
+        <div class="cab1"></div>
+        <div class="cap2"></div>
+    </div>
+    <div class="cuerpo">
+        <div class="panel2">
+            <!--
+				Observe como thymeleaf nos aofrece la posibilidad de utilizar estructuras de control, tales como los if. Estas determinan si el elemento
+				html que la sustenta, se mostrará o no según la condición a evaluar.
+			-->
+            <div class="item"><p><span>Resultado Ejemplo 9:</span> Ejecutado Correctamente.</p></div>
+            <div class="item"><p><span>Ejemplo 9:</span> Formulario que envía por método POST varios datos del profesor a la ruta relativa <b>./ejemplo10</b> (controladora MasEjemplosController) y la controladora realiza una verificación tal que si algún dato es vacío se retorna a la vista actual informando del error.</p>
+            				 <div><form method="POST" action="./ejemplo9">
+            						  <div><label>Nombre: </label><input type="text" name="nom" value="" placeholder="Ej: Miguel" /></div><!--
+            					   --><div><label>Apellidos: </label><input type="text" name="apell" value="" placeholder="Ej: Rodriguez Pérez" /></div><!--
+            					   --><div><label>Edad: </label><input type="number" name="edad" min="1" max="100" value="" /></div><!--
+            					   --> <br/><p style="color: red; text-align: center;" th:if="${DataProfesor != null}" th:text="${DataProfesor.msgError}"></p>
+            					      <div><input type="submit" value="Enviar" /></div>
+            					  </form>
+                            </div>
+                            <div th:if="${DataProfesor != null}">
+								<div th:if="${!DataProfesor.isFlagError()}">
+									<p><b>Nombre: </b><em th:text="${DataProfesor.nom}"></em></p>
+									<p><b>Apellidos: </b><em th:text="${DataProfesor.apell}"></em></p>
+									<p><b>Edad: </b><em th:text="${DataProfesor.edad}"></em></p>
+								</div>
+							</div>
+            </div>
+            <div class="item"><p style="text-align:center;"><a href="../">Volver</a></p></div>
+        </div>
+    </div>
+    <div class="pie"><p><span>©</span> 2022 - Daniel Pérez Pérez</p></div>
+
+</body>
+</html>

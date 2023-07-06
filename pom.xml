@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<!--[1] - Se indica la versión de Spring Boot que se está utilizado.-->
+		<version>3.1.1</version>
+		<relativePath/>
+	</parent>
+	<groupId>es.dsw</groupId>
+	<artifactId>TSpringBootProjectDemo1</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>TSpringBootProyectDemo1</name>
+	<description>Ejemplo sencillo de una aplicación web con Spring Boot Web y Thymeleaf</description>
+	<properties>
+		<java.version>17</java.version>
+	</properties>
+	<dependencies>
+		<!--[2] - Dependencia de Spring Boot relativa a la tecnología Thymeleaf que nos permitirá renderizar.-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<!--[3] - Dependencia de Spring Boot relativa al módulo de desarrollo Web MVC.-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!--[4] - Dependencia de Spring Boot que indica el servidor de aplicación que se embeberá en la aplicación. En https://mvnrepository.com/
+		          puedes consultar la versión exacta del servidor que embebe.-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!--[5] - Dependencia de Spring Boot relativa a pruebas unitarias. Se añade por defecto, aunque no es obligatoria.-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!--[5] - Dependencia que si bien es verdad no es imprescindible, si es obligatoria si quieres generar .war para desplegar
+		          la aplicación en contenedores como Apache Tomcat. Para generar un .war solo debes hacer clic derecho sobre la raiz 
+		          del proyecto y a continuación hacer clic en Run as -> Maven install. Luego podrá localizar el .war el el directorio
+		          target del proyecto-->
+		<dependency>
+    		<groupId>org.apache.tomcat.embed</groupId>
+    		<artifactId>tomcat-embed-jasper</artifactId>
+    		<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+		<!--[6] - Indica el nombre del fichero .war cuando lo generes según lo indicado en el anterior comentario [5] -->
+		<finalName>TSpringBootProjectDemo1</finalName>
+	</build>
+
+</project>

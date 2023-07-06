@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Spring Proyect Demo 1 - Ejemplo 10</title>
+<link rel="stylesheet" href="../styles/index.css">
+</head>
+<body>
+    <div class="cabecera">
+        <div class="cab1"></div>
+        <div class="cap2"></div>
+    </div>
+    <div class="cuerpo">
+        <div class="panel2">
+            <div class="item"><p><span>Listado de Alumnos</span> (Ejemplo thymeleaf: notación iterativa each y generar enlaces dinámicos)</p></div>
+			<div class="item" th:each="alum : ${DataProfesor.listaAlumnos}">
+							<p><strong>Nombre: </strong><em th:text="${alum.nom}"></em></p>
+							<p><strong>Apellidos: </strong><em th:text="${alum.apell}"></em></p>
+							<p><strong>Edad: </strong><em th:text="${alum.edad}"></em></p>
+							<p><a th:href="@{'./ejemplo11?idalum=' + ${alum.idAlumno} + '&nif=' + ${alum.nif}}">Enviar datos alumno</a></p>
+			</div>
+			<div class="item"><p><span>Datos de Profesor</span> (Ejemplo thymeleaf: notación *)</p></div>
+			<div class="item" th:object="${DataProfesor}">
+							<p><strong>Nif: </strong><em th:text="*{nif}"></em></p>
+							<p><strong>Nombre: </strong><em th:text="*{nom}"></em></p>
+							<p><strong>Apellidos: </strong><em th:text="*{apell}"></em></p>
+							<p><strong>Edad: </strong><em th:text="*{edad}"></em></p>
+			</div>
+			<div class="item" th:if="${DataProfesor.edad >= 60}">
+					<p><span>Datos del Profesor Jubilado</span> (Ejemplo thymeleaf: notación if y concatenación de mensajes)</p>
+			</div>
+			<div class="item" th:if="${DataProfesor.edad >= 60}">
+							<p><strong>Nombre: </strong><em th:text="${DataProfesor.nif}"></em></p>
+							<p><strong>Nombre: </strong><em th:text="${DataProfesor.nom}"></em></p>
+							<p><strong>Apellidos: </strong><em th:text="${DataProfesor.apell}"></em></p>
+							<p><strong>Edad: </strong><em th:text="${DataProfesor.edad + ' (pero parece más joven)'}"></em></p>
+			</div>
+            <div class="item"><p style="text-align:center;"><a href="../">Volver</a></p></div>
+        </div>
+    </div>
+    <div class="pie"><p><span>©</span> 2023 - Daniel Pérez Pérez</p></div>
+
+</body>
+</html>
