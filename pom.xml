@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<!--[1] - Se indica la versión de Spring Boot que se está utilizado.-->
-		<version>3.1.1</version>
+		<version>3.3.4</version>
 		<relativePath/>
 	</parent>
 	<groupId>es.dsw</groupId>
